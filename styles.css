@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./images/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0;
+  }
+  
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 80vmin; /* Adjust based on the viewport, keeping the game area square */
+    position: relative;
+    perspective: 1000px;
+    background-image: url('./images/GigglesDoor.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  
+  .card {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .card::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* This keeps the card square */
+  }
+  
+  .card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  
+  .card-front {
+    background: #fff;
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-back {
+    background: url('./images/back.jpg') no-repeat center center;
+    background-size: cover;
+    transform: rotateY(0deg);
+  }
+  
+  @media (max-width: 768px) {
+    .memory-game {
+      width: 90vmin; /* Increase the size a bit on smaller screens */
+      padding: 10px;
+      gap: 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .memory-game {
+      grid-template-columns: repeat(4, 1fr); /* Adjust as necessary for very small screens */
+    }
+  }
+  
