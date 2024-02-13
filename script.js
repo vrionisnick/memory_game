@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       secondCard.removeEventListener('click', flipCard);
   
       resetBoard();
+      checkCompletion();
     }
   
     function unflipCards() {
@@ -58,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let randomPos = Math.floor(Math.random() * 12);
         card.style.order = randomPos;
       });
+    }
+
+    function checkCompletion() {
+      let allFlipped = document.querySelectorAll('.flipped').length;
+      let totalCards = document.querySelectorAll('.card').length;
+    
+      // If all cards are flipped, show the completion message
+      if (allFlipped === totalCards) {
+        document.getElementById('game-complete-message').style.display = 'flex';
+      }
     }
   
     cards.forEach(card => card.addEventListener('click', flipCard));

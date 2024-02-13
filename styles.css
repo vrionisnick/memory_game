@@ -89,3 +89,34 @@ body {
     }
   }
   
+  .game-complete {
+    position: fixed; /* Or absolute, depending on your layout */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Semi-transparent background */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000; /* Make sure it's above all other content */
+  }
+  
+  .game-complete h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .game-complete p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .game-complete img {
+    max-width: 50%; /* Adjust the size of your image */
+    border-radius: 10px; /* Optional: if you want rounded corners */
+  }
+  
